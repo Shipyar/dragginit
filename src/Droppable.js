@@ -15,7 +15,7 @@ const Droppable = React.memo(({children, onDrop, canDrag, onDrag}) => {
       className='Droppable'
       style={{width: '100%', height: '100%'}}
       draggable={canDrag}
-      onDrag={e => onDrag(e)}
+      onDragStart={e => onDrag(e)}
       onDrop={e => onDrop(e)}
       onDragOver={e => handleDragOver(e)}
     >
