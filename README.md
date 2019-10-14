@@ -2,15 +2,6 @@
 
 > Simple react component to allow drag and drop
 
-```js
-<Draggable onDrag={handler}>
-  <div>I can now be moved around!</div>
-</Draggable>
-
-<Droppable onDrop={handler}>
-  <div>I accept draggable items</div>
-</Droppable>
-```
 
 [![NPM](https://img.shields.io/npm/v/dragginit.svg)](https://www.npmjs.com/package/dragginit) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -24,6 +15,26 @@ npm install --save dragginit
 
 ```jsx
 import { Draggable, Droppable } from 'dragginit'
+```
+
+Basic usage
+
+```js
+<Draggable onDrag={handler}>
+  <div>I can now be moved around!</div>
+</Draggable>
+
+<Droppable onDrop={handler}>
+  <div>I accept draggable items</div>
+</Droppable>
+```
+
+Enable Droppable components to drag
+
+```js
+<Droppable onDrop={dropHandler} canDrop onDrag={dragHandler}>
+  <div>I accept draggable items</div>
+</Droppable>
 ```
 
 ## License
