@@ -1,6 +1,6 @@
 {
   "name": "dragginit",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Simple react component to allow drag and drop",
   "author": "Shipyar",
   "license": "MIT",
