@@ -1,6 +1,6 @@
 # dragginit
 
-> Simple react component to allow drag and drop
+> Simple react component to allow drag and drop based on the html drag and drop
 
 
 [![NPM](https://img.shields.io/npm/v/dragginit.svg)](https://www.npmjs.com/package/dragginit) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
@@ -35,6 +35,14 @@ Enable Droppable components to drag
 <Droppable onDrop={dropHandler} canDrop onDrag={dragHandler}>
   <div>I accept draggable items</div>
 </Droppable>
+```
+
+Drag a custom src image, by default draggale components dont drag and image.
+
+```js
+<Draggable onDrag={handler} src="/path/to/basic/imgurl">
+  <div>I can now be moved around!</div>
+</Draggable>
 ```
 
 ## License
