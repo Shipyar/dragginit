@@ -1,6 +1,6 @@
 {
   "name": "dragginit",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Simple react component to allow drag and drop",
   "author": "Shipyar",
   "license": "MIT",
@@ -44,8 +44,8 @@
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-standard": "^3.1.0",
     "gh-pages": "^1.2.0",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "react-scripts": "^1.1.4",
     "rollup": "^0.64.1",
     "rollup-plugin-babel": "^3.0.7",
