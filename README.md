@@ -40,8 +40,20 @@ Enable Droppable components to drag
 Drag a custom src image, by default draggale components dont drag and image.
 
 ```js
-<Draggable onDrag={handler} src="/path/to/basic/imgurl">
+<Draggable src="/path/to/basic/imgurl">
   <div>I can now be moved around!</div>
+</Draggable>
+```
+
+Edit Draggable and Droppable Styles.
+
+```js
+<Droppable styles={border: '1px solid red'}>
+  <div>I can dropped and you can style me how you want!</div>
+</Droppable>
+
+<Draggable styles={border: '1px solid red'}>
+  <div>I can now be moved around, and you can style me how you want!</div>
 </Draggable>
 ```
 

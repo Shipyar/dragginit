@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Draggable = React.memo(({ children, onDrag, src }) => {
+const Draggable = React.memo(({ children, onDrag, src, styles }) => {
   const handleDragStart = (e) => {
     if (src) {
       // eslint-disable-next-line no-undef
@@ -17,6 +17,7 @@ const Draggable = React.memo(({ children, onDrag, src }) => {
   return (
     <div
       draggable
+      style={styles}
       onDragStart={e => handleDragStart(e)}
     >
       {children}
@@ -25,7 +26,7 @@ const Draggable = React.memo(({ children, onDrag, src }) => {
 })
 
 Draggable.defaultProps = {
-  onDrag: () => {} // Setting on drag to an empty function to prevent type error.
+  onDrag: () => {}, // Setting on drag to an empty function to prevent type error.
 }
 
 Draggable.propTypes = {
@@ -43,7 +44,12 @@ Draggable.propTypes = {
   /**
    * String URL to of the path of the replacement image
    */
-  src: PropTypes.string
+  src: PropTypes.string,
+
+  /**
+   * The Styles passed down to the droppable component
+   */
+  styles: PropTypes.object
 }
 
 export default Draggable

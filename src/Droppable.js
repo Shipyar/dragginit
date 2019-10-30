@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Droppable = React.memo(({children, onDrop, canDrag, onDrag}) => {
+const Droppable = React.memo(({children, onDrop, canDrag, onDrag, styles}) => {
   /**
    * Handle Drag Over,
    * we need to prevent default on the drag over otherwise drag wont work1
@@ -13,7 +13,7 @@ const Droppable = React.memo(({children, onDrop, canDrag, onDrag}) => {
   return (
     <div
       className='Droppable'
-      style={{width: '100%', height: '100%'}}
+      style={styles}
       draggable={canDrag}
       onDragStart={e => onDrag(e)}
       onDrop={e => onDrop(e)}
@@ -27,7 +27,8 @@ const Droppable = React.memo(({children, onDrop, canDrag, onDrag}) => {
 Droppable.defaultProps = {
   onDrop: () => {}, // Setting on drop to an empty function to prevent type error.
   onDrag: () => {}, // Setting on drag to an empty function to prevent type error.
-  canDrag: false
+  canDrag: false,
+  styles: {}
 }
 
 Droppable.propTypes = {
@@ -51,7 +52,12 @@ Droppable.propTypes = {
   /**
    * Allow Droppable items to be dragged if this flag is set
    */
-  canDrag: PropTypes.bool
+  canDrag: PropTypes.bool,
+
+  /**
+   * The Styles passed down to the droppable component
+   */
+  styles: PropTypes.object
 }
 
 export default Droppable
