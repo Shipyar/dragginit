@@ -1,6 +1,6 @@
 {
   "name": "dragginit",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Simple react component to allow drag and drop",
   "author": "Shipyar",
   "license": "MIT",
@@ -18,8 +18,8 @@
     "build": "rollup -c",
     "start": "rollup -c -w",
     "prepare": "npm run build",
-    "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
