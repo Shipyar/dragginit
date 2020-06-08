@@ -16,7 +16,7 @@ const App = () => {
       <Droppable>
         <Draggable styles={{width: '120px', height: '120px'}}></Draggable>
       </Droppable>
-      <Droppable styles={style}>
+      <Droppable styles={style} canDrag>
         <div></div>
       </Droppable>
       <Droppable styles={style}>

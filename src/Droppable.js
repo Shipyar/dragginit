@@ -10,12 +10,25 @@ const Droppable = React.memo(({children, onDrop, canDrag, onDrag, styles}) => {
     e.preventDefault()
   }
 
+  /**
+   * HandleDragStart,
+   * Force the drag to stop if we have set the droppable component to disable drag
+   */
+  const handleDragStart = (e) => {
+    if (!canDrag) {
+      e.preventDefault()
+      e.stopPropagation()
+    } else {
+      onDrag(e)
+    }
+  }
+
   return (
     <div
       className='Droppable'
       style={styles}
-      draggable={canDrag}
-      onDragStart={e => onDrag(e)}
+      draggable={canDrag ? 'true' : 'false'}
+      onDragStart={e => handleDragStart(e)}
       onDrop={e => onDrop(e)}
       onDragOver={e => handleDragOver(e)}
     >
