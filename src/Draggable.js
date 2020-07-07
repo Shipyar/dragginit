@@ -29,7 +29,7 @@ const Draggable = React.memo(({ children, onDrag, src, styles, useDragImage }) =
 
 Draggable.defaultProps = {
   onDrag: () => {}, // Setting on drag to an empty function to prevent type error.
-  useDragImage: true,
+  useDragImage: true
 }
 
 Draggable.propTypes = {

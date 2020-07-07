@@ -1,7 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Droppable = React.memo(({children, onDrop, canDrag, onDrag, styles}) => {
+const Droppable = React.memo(({
+  children,
+  onDrop,
+  canDrag,
+  onDrag,
+  src,
+  useDragImage,
+  styles
+}) => {
   /**
    * Handle Drag Over,
    * we need to prevent default on the drag over otherwise drag wont work1
@@ -15,10 +23,17 @@ const Droppable = React.memo(({children, onDrop, canDrag, onDrag, styles}) => {
    * Force the drag to stop if we have set the droppable component to disable drag
    */
   const handleDragStart = (e) => {
-    if (!canDrag) {
-      e.preventDefault()
-      e.stopPropagation()
-    } else {
+    if (canDrag) {
+      if (!useDragImage) {
+        if (src) {
+          // eslint-disable-next-line no-undef
+          let img = new Image()
+          img.src = src
+          e.dataTransfer.setDragImage(img, 0, 0)
+        } else {
+          e.dataTransfer.setDragImage(document.createElement('img'), 0, 0)
+        }
+      }
       onDrag(e)
     }
   }
@@ -41,7 +56,8 @@ Droppable.defaultProps = {
   onDrop: () => {}, // Setting on drop to an empty function to prevent type error.
   onDrag: () => {}, // Setting on drag to an empty function to prevent type error.
   canDrag: false,
-  styles: {}
+  styles: {},
+  useDragImage: false
 }
 
 Droppable.propTypes = {
@@ -68,9 +84,19 @@ Droppable.propTypes = {
   canDrag: PropTypes.bool,
 
   /**
+   * String URL to of the path of the replacement image
+   */
+  src: PropTypes.string,
+
+  /**
    * The Styles passed down to the droppable component
    */
-  styles: PropTypes.object
+  styles: PropTypes.object,
+
+  /**
+   * Bool to control the use of a drag image
+   */
+  useDragImage: PropTypes.bool
 }
 
 export default Droppable
